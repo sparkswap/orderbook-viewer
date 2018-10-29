@@ -1,32 +1,31 @@
 .App {
-  text-align: center;
+  padding-top: 25px;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+.App, .App .ui {
+  font-family: 'Nunito Sans', Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.App .Logo {
+  font-family: Montserrat, Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  font-weight: 700;
 }
 
-.App-link {
-  color: #61dafb;
+.App .Logo img {
+  width: 1.5em;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.App .Logo .subtitle {
+  font-weight: 200;
+  font-size: 0.8em;
+  margin-left: 1em;
+  display: inline-block;
+}
+
+.App .Footer a img {
+  opacity: 0.5;
+}
+
+.App .Footer a:hover img, .App .Footer a:active img {
+  opacity: 1;
 }
