@@ -22,10 +22,11 @@ class App extends Component {
         name: 'BTC/LTC'
       }
     ]
+    this.host = 'http://127.0.0.1:27592'
   }
 
   componentDidMount () {
-    this.marketData = new MarketData(this.markets[0].name, 'http://127.0.0.1:27592')
+    this.marketData = new MarketData(this.markets[0].name, this.host)
     this.marketData.on('update', (orderbook) => {
       this.setState({ orderbook })
     })
