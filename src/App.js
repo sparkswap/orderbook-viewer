@@ -64,8 +64,8 @@ class App extends Component {
           <Table>
             <Table.Header>
               <Table.Row>
-                <Table.HeaderCell colSpan="2">Bids</Table.HeaderCell>
                 <Table.HeaderCell colSpan="2">Asks</Table.HeaderCell>
+                <Table.HeaderCell colSpan="2">Bids</Table.HeaderCell>
               </Table.Row>
               <Table.Row>
                 <Table.HeaderCell width={4}>Price</Table.HeaderCell>
@@ -79,10 +79,10 @@ class App extends Component {
               {combinedOrderbook.map((row) => {
                 return (
                   <Table.Row>
-                    <Table.Cell>{row.bid ? row.bid.price : ''}</Table.Cell>
-                    <Table.Cell>{row.bid ? row.bid.amount : ''}</Table.Cell>
                     <Table.Cell>{row.ask ? row.ask.price : ''}</Table.Cell>
                     <Table.Cell>{row.ask ? row.ask.amount : ''}</Table.Cell>
+                    <Table.Cell>{row.bid ? row.bid.price : ''}</Table.Cell>
+                    <Table.Cell>{row.bid ? row.bid.amount : ''}</Table.Cell>
                   </Table.Row>
                 )
               })}
