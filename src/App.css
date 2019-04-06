@@ -22,10 +22,29 @@
   display: inline-block;
 }
 
+.App .Footer {
+  display: flex;
+}
+
 .App .Footer a img {
   opacity: 0.5;
 }
 
 .App .Footer a:hover img, .App .Footer a:active img {
   opacity: 1;
+}
+
+.App .Footer .Install {
+  align-self: center;
+  padding-left: 2em;
+}
+
+.App .Footer .Discord {
+  align-self: center;
+  padding-left: 2em;
+}
+
+.App .Footer .Support {
+  align-self: center;
+  padding-left: 2em;
 }

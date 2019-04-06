@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Dropdown, Image, Header, Segment, Container, Table, Label } from 'semantic-ui-react'
+import { Button, Container, Header, Image, Segment, Table } from 'semantic-ui-react'
 import MarketSelector from './market-selector.js'
 import MarketData from './market-data.js'
 import icon from './icon.svg';
@@ -54,7 +54,7 @@ class App extends Component {
                 <Image src={icon} size="large" />
                 <Header.Content>
                   orderbook
-                  <Header.Subheader>TestNet</Header.Subheader>
+                  <Header.Subheader>Mainnet</Header.Subheader>
                 </Header.Content>
               </Header>
             </a>
@@ -90,9 +90,26 @@ class App extends Component {
             </Table.Body>
           </Table>
           <Segment basic className="Footer">
-            <a href="https://sparkswap.com">
-              <Image src={logo} size="small" />
-            </a>
+            <div>
+              <a href="https://sparkswap.com">
+                <Image src={logo} size="small" />
+              </a>
+            </div>
+            <div className="Install">
+              <a href="https://sparkswap.com/docs/getting-started">
+                <Button color='grey'>Install Now</Button>
+              </a>
+            </div>
+            <div className="Discord">
+              <a href="https://sparkswap.com/chat">
+                Discord
+              </a>
+            </div>
+            <div className="Support">
+              <a href="https://sparkswap.com/onboarding">
+                Support
+              </a>
+            </div>
           </Segment>
         </Container>
       </div>
