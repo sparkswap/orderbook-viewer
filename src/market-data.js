@@ -13,10 +13,10 @@ class MarketData extends EventEmitter {
 
   retrieve () {
     const config = {
+      // This auth is used for demo purposes only
       auth: {
         username: 'sparkswap',
         password: 'sparkswap'
-
       }
     }
 
