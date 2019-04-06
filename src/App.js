@@ -33,6 +33,19 @@ class App extends Component {
     this.marketData.subscribe()
   }
 
+  showMailingPopUp () {
+    window.dojoRequire(["mojo/signup-forms/Loader"], function(L) {
+      L.start({
+        "baseUrl": "mc.us20.list-manage.com",
+        "uuid": "4961901816385b733cb9d63bf",
+        "lid":"d758719e3e",
+        "uniqueMethods":true
+      })
+    })
+    document.cookie = 'MCPopupClosed=;path=/;expires=Thu, 01 Jan 1970 00:00:00 UTC;';
+    document.cookie = 'MCPopupSubscribed=;path=/;expires=Thu, 01 Jan 1970 00:00:00 UTC;';
+  };
+
   render() {
     const { markets } = this
     const { orderbook } = this.state
@@ -108,6 +121,11 @@ class App extends Component {
             <div className="Support">
               <a href="https://sparkswap.com/onboarding">
                 Support
+              </a>
+            </div>
+            <div className="Subscribe">
+              <a href="#" onClick={this.showMailingPopUp}>
+                Subscribe to Updates
               </a>
             </div>
           </Segment>
