@@ -61,9 +61,9 @@ class App extends Component {
     return (
       <div className="App">
         <Container>
-          <Segment basic clearing>
-            <a href="/">
-              <Header floated="left" as="h1" className="Logo">
+          <Segment basic clearing className="Header">
+            <a href="/" className="Header-link">
+              <Header as="h1" className="Logo">
                 <Image src={icon} size="large" />
                 <Header.Content>
                   orderbook
@@ -71,7 +71,14 @@ class App extends Component {
                 </Header.Content>
               </Header>
             </a>
-            <Header floated="right" as="h3">
+            <Header>
+              <div className="Install">
+                <a href="https://sparkswap.com/docs/getting-started">
+                  <Button color='grey'>Install Now</Button>
+                </a>
+              </div>
+            </Header>
+            <Header as="h3" className="market-selector">
               <MarketSelector markets={markets} />
             </Header>
           </Segment>
@@ -106,11 +113,6 @@ class App extends Component {
             <div>
               <a href="https://sparkswap.com">
                 <Image src={logo} size="small" />
-              </a>
-            </div>
-            <div className="Install">
-              <a href="https://sparkswap.com/docs/getting-started">
-                <Button color='grey'>Install Now</Button>
               </a>
             </div>
             <div className="Discord">

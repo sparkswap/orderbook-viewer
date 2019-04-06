@@ -6,20 +6,38 @@
   font-family: 'Nunito Sans', Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
 }
 
-.App .Logo {
+.App .Header {
+  display: flex;
+}
+
+.App .Header-link {
+  align-self: center;
+}
+
+.App .Header .Logo {
   font-family: Montserrat, Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
   font-weight: 700;
 }
 
-.App .Logo img {
+.App .Header .Logo img {
   width: 1.5em;
 }
 
-.App .Logo .subtitle {
+.App .Header .Logo .subtitle {
   font-weight: 200;
   font-size: 0.8em;
   margin-left: 1em;
   display: inline-block;
+}
+
+.App .Header .Install {
+  align-self: center;
+  margin-left: 2em;
+}
+
+.App .Header .market-selector {
+  align-self: center;
+  margin-left: auto;
 }
 
 .App .Footer {
@@ -34,12 +52,8 @@
   opacity: 1;
 }
 
-.App .Footer .Install {
-  align-self: center;
-  padding-left: 2em;
-}
-
 .App .Footer .Discord {
+  margin-left: auto;
   align-self: center;
   padding-left: 2em;
 }
