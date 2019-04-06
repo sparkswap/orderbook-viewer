@@ -71,16 +71,14 @@ class App extends Component {
                 </Header.Content>
               </Header>
             </a>
-            <Header>
-              <div className="Install">
-                <a href="https://sparkswap.com/docs/getting-started">
-                  <Button color='grey'>Install Now</Button>
-                </a>
-              </div>
-            </Header>
-            <Header as="h3" className="market-selector">
+            <div className="Install">
+              <a href="https://sparkswap.com/docs/getting-started">
+                <Button size="large" color='grey'>Install Now</Button>
+              </a>
+            </div>
+            <div className="market-selector">
               <MarketSelector markets={markets} />
-            </Header>
+            </div>
           </Segment>
           <Table>
             <Table.Header>
@@ -115,20 +113,10 @@ class App extends Component {
                 <Image src={logo} size="small" />
               </a>
             </div>
-            <div className="Discord">
-              <a href="https://sparkswap.com/chat">
-                Discord
-              </a>
-            </div>
-            <div className="Support">
-              <a href="https://sparkswap.com/onboarding">
-                Support
-              </a>
-            </div>
-            <div className="Subscribe">
-              <a href="#" onClick={this.showMailingPopUp}>
-                Subscribe to Updates
-              </a>
+            <div className="links">
+              <a href="https://sparkswap.com/chat">Chat</a>
+              <a href="https://sparkswap.com/onboarding">Get Help</a>
+              <a href="#" onClick={this.showMailingPopUp}>Subscribe to Updates</a>
             </div>
           </Segment>
         </Container>

@@ -10,7 +10,7 @@
   display: flex;
 }
 
-.App .Header-link {
+.App .Header .Header-link {
   align-self: center;
 }
 
@@ -38,10 +38,12 @@
 .App .Header .market-selector {
   align-self: center;
   margin-left: auto;
+  font-size: 1.2em;
 }
 
 .App .Footer {
   display: flex;
+  padding-right: 0;
 }
 
 .App .Footer a img {
@@ -52,18 +54,20 @@
   opacity: 1;
 }
 
-.App .Footer .Discord {
+.App .Footer .links {
   margin-left: auto;
   align-self: center;
-  padding-left: 2em;
 }
 
-.App .Footer .Support {
-  align-self: center;
-  padding-left: 2em;
+.App .Footer .links * {
+  margin-left: 2em;
 }
 
-.App .Footer .Subscribe {
-  align-self: center;
-  padding-left: 2em;
+.App .Footer .button-group {
+  margin-left: auto;
+}
+
+.App .Footer a {
+  color: inherit;
+  text-decoration: inherit;
 }
