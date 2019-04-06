@@ -12,7 +12,15 @@ class MarketData extends EventEmitter {
   }
 
   retrieve () {
-    return axios.get(`${this.host}${ORDERBOOK_URL}?market=${this.market}`)
+    const config = {
+      // This auth is used for demo purposes only
+      auth: {
+        username: 'sparkswap',
+        password: 'sparkswap'
+      }
+    }
+
+    return axios.get(`${this.host}${ORDERBOOK_URL}?market=${this.market}`, config)
   }
 
   async poll () {

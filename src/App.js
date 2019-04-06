@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Dropdown, Image, Header, Segment, Container, Table, Label } from 'semantic-ui-react'
+import { Button, Container, Header, Image, Segment, Table } from 'semantic-ui-react'
 import MarketSelector from './market-selector.js'
 import MarketData from './market-data.js'
 import icon from './icon.svg';
@@ -33,6 +33,19 @@ class App extends Component {
     this.marketData.subscribe()
   }
 
+  showMailingPopUp () {
+    window.dojoRequire(["mojo/signup-forms/Loader"], function(L) {
+      L.start({
+        "baseUrl": "mc.us20.list-manage.com",
+        "uuid": "4961901816385b733cb9d63bf",
+        "lid":"d758719e3e",
+        "uniqueMethods":true
+      })
+    })
+    document.cookie = 'MCPopupClosed=;path=/;expires=Thu, 01 Jan 1970 00:00:00 UTC;';
+    document.cookie = 'MCPopupSubscribed=;path=/;expires=Thu, 01 Jan 1970 00:00:00 UTC;';
+  };
+
   render() {
     const { markets } = this
     const { orderbook } = this.state
@@ -48,19 +61,24 @@ class App extends Component {
     return (
       <div className="App">
         <Container>
-          <Segment basic clearing>
-            <a href="/">
-              <Header floated="left" as="h1" className="Logo">
+          <Segment basic clearing className="Header">
+            <a href="/" className="Header-link">
+              <Header as="h1" className="Logo">
                 <Image src={icon} size="large" />
                 <Header.Content>
                   orderbook
-                  <Header.Subheader>TestNet</Header.Subheader>
+                  <Header.Subheader>Mainnet</Header.Subheader>
                 </Header.Content>
               </Header>
             </a>
-            <Header floated="right" as="h3">
+            <div className="Install">
+              <a href="https://sparkswap.com/docs/getting-started">
+                <Button size="large" color='grey'>Install Now</Button>
+              </a>
+            </div>
+            <div className="market-selector">
               <MarketSelector markets={markets} />
-            </Header>
+            </div>
           </Segment>
           <Table>
             <Table.Header>
@@ -90,9 +108,16 @@ class App extends Component {
             </Table.Body>
           </Table>
           <Segment basic className="Footer">
-            <a href="https://sparkswap.com">
-              <Image src={logo} size="small" />
-            </a>
+            <div>
+              <a href="https://sparkswap.com">
+                <Image src={logo} size="small" />
+              </a>
+            </div>
+            <div className="links">
+              <a href="https://sparkswap.com/chat">Chat</a>
+              <a href="https://sparkswap.com/onboarding">Get Help</a>
+              <a href="#" onClick={this.showMailingPopUp}>Subscribe to Updates</a>
+            </div>
           </Segment>
         </Container>
       </div>
