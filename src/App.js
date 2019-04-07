@@ -40,6 +40,9 @@ class App extends Component {
   }
 
   componentDidMount () {
+    // Analytics
+    window.analytics.page('Home')
+
     this.marketData = new MarketData(this.markets[0].name, this.host, this.username, this.password)
     this.marketData.on('update', (orderbook) => {
       this.setState({ orderbook })
@@ -48,6 +51,9 @@ class App extends Component {
   }
 
   showMailingPopUp () {
+    // Analytics
+    App.trackLink('Mailing Popup')
+
     window.dojoRequire(["mojo/signup-forms/Loader"], function(L) {
       L.start({
         "baseUrl": "mc.us20.list-manage.com",
@@ -59,6 +65,10 @@ class App extends Component {
     document.cookie = 'MCPopupClosed=;path=/;expires=Thu, 01 Jan 1970 00:00:00 UTC;';
     document.cookie = 'MCPopupSubscribed=;path=/;expires=Thu, 01 Jan 1970 00:00:00 UTC;';
   };
+
+  static trackLink (link) {
+    window.analytics.track(link)
+  }
 
   /**
    * Generates an array of HTLM elements (in JSX) that represents the orderbook as a
@@ -217,15 +227,15 @@ class App extends Component {
               </a>
             </div>
             <div className="links">
-              <a href="https://sparkswap.com/chat" className="link-item">
+              <a href="https://sparkswap.com/chat" className="link-item" onClick={() => App.trackLink('chat')}>
                 <Icon name="discord" />
                 Chat
               </a>
-              <a href="https://sparkswap.com/docs/getting-started" className="link-item">
+              <a href="https://sparkswap.com/docs/getting-started" className="link-item" onClick={() => App.trackLink('docs')}>
                 <Icon name="file alternate" />
                 Docs
               </a>
-              <a href="https://sparkswap.com/onboarding" className="link-item">
+              <a href="https://sparkswap.com/onboarding" className="link-item" onClick={() => App.trackLink('help')}>
                 <Icon name="life ring" />
                 Get Help
               </a>
