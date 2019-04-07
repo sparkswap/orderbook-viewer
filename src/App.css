@@ -68,18 +68,18 @@
   text-decoration: inherit;
 }
 
-.App .green-text {
+.App .bid-sig-digits {
   color: green;
 }
 
-.App .red-text {
+.App .ask-sig-digits {
   color: red;
 }
 
-.App .black-text {
+.App .depth-sig-digits {
   color: black;
 }
 
-.App .gray-text {
+.App .non-sig-digits {
   color: gray;
 }

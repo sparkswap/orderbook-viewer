@@ -116,7 +116,7 @@ class App extends Component {
     const formatted = []
     if (needsGrayColoring) {
       const significantDigits = [...text].slice(0, firstNonSigZero)
-      const nonSigDigits = (<span className='gray-text'>{[...text].slice(firstNonSigZero)}</span>)
+      const nonSigDigits = (<span className='non-sig-digits'>{[...text].slice(firstNonSigZero)}</span>)
 
       formatted.push(App.addColoring(significantDigits, type), nonSigDigits)
     } else {
@@ -136,11 +136,11 @@ class App extends Component {
   static addColoring (text, type) {
     switch (type) {
       case FORMAT_TYPES.BID:
-        return (<span className='green-text'>{text}</span>)
+        return (<span className='bid-sig-digits'>{text}</span>)
       case FORMAT_TYPES.ASK:
-        return (<span className='red-text'>{text}</span>)
+        return (<span className='ask-sig-digits'>{text}</span>)
       case FORMAT_TYPES.DEPTH:
-        return (<span className='black-text'>{text}</span>)
+        return (<span className='depth-sig-digits'>{text}</span>)
     }
   }
 
