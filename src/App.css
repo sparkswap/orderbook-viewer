@@ -67,3 +67,19 @@
   color: inherit;
   text-decoration: inherit;
 }
+
+.App .green-text {
+  color: green;
+}
+
+.App .red-text {
+  color: red;
+}
+
+.App .black-text {
+  color: black;
+}
+
+.App .gray-text {
+  color: gray;
+}
