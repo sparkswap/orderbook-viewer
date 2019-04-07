@@ -215,16 +215,16 @@ class App extends Component {
                 <Icon name="discord" />
                 Chat
               </a>
-              <a href="https://github.com/sparkswap" className="link-item">
-                <Icon name="github" />
-                GitHub
+              <a href="https://sparkswap.com/docs/getting-started" className="link-item">
+                <Icon name="file alternate" />
+                Docs
               </a>
               <a href="https://sparkswap.com/onboarding" className="link-item">
                 <Icon name="life ring" />
                 Get Help
               </a>
               <a href="#" onClick={this.showMailingPopUp} className="link-item">
-                <Icon name="newspaper" />
+                <Icon name="envelope" />
                 Subscribe to Updates
               </a>
             </div>
