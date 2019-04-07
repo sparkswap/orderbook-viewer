@@ -141,6 +141,8 @@ class App extends Component {
         return (<span className='ask-sig-digits'>{text}</span>)
       case FORMAT_TYPES.DEPTH:
         return (<span className='depth-sig-digits'>{text}</span>)
+      default:
+        return (<span>{text}</span>)
     }
   }
 
