@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Container, Header, Image, Segment, Table } from 'semantic-ui-react'
+import { Button, Container, Header, Icon, Image, Segment, Table } from 'semantic-ui-react'
 import MarketSelector from './market-selector.js'
 import MarketData from './market-data.js'
 import icon from './icon.svg';
@@ -22,7 +22,7 @@ class App extends Component {
         name: 'BTC/LTC'
       }
     ]
-    this.host = 'http://127.0.0.1:27592'
+    this.host = 'https://viewer.mainnet.sparkswap.com:27592'
   }
 
   componentDidMount () {
@@ -73,7 +73,7 @@ class App extends Component {
             </a>
             <div className="Install">
               <a href="https://sparkswap.com/docs/getting-started">
-                <Button size="large" color='grey'>Install Now</Button>
+                <Button size="large" color='black'>Install Now</Button>
               </a>
             </div>
             <div className="market-selector">
@@ -114,9 +114,22 @@ class App extends Component {
               </a>
             </div>
             <div className="links">
-              <a href="https://sparkswap.com/chat">Chat</a>
-              <a href="https://sparkswap.com/onboarding">Get Help</a>
-              <a href="#" onClick={this.showMailingPopUp}>Subscribe to Updates</a>
+              <a href="https://sparkswap.com/chat" className="link-item">
+                <Icon name="discord" />
+                Chat
+              </a>
+              <a href="https://github.com/sparkswap" className="link-item">
+                <Icon name="github" />
+                GitHub
+              </a>
+              <a href="https://sparkswap.com/onboarding" className="link-item">
+                <Icon name="life ring" />
+                Get Help
+              </a>
+              <a href="#" onClick={this.showMailingPopUp} className="link-item">
+                <Icon name="newspaper" />
+                Subscribe to Updates
+              </a>
             </div>
           </Segment>
         </Container>

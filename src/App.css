@@ -59,7 +59,7 @@
   align-self: center;
 }
 
-.App .Footer .links * {
+.App .Footer .links .link-item {
   margin-left: 2em;
 }
 
