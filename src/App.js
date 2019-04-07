@@ -33,10 +33,14 @@ class App extends Component {
       }
     ]
     this.host = 'https://viewer.mainnet.sparkswap.com:27592'
+
+    // This is hardcoded for demo purposes only
+    this.username = 'sparkswap'
+    this.password = 'sparkswap'
   }
 
   componentDidMount () {
-    this.marketData = new MarketData(this.markets[0].name, this.host)
+    this.marketData = new MarketData(this.markets[0].name, this.host, this.username, this.password)
     this.marketData.on('update', (orderbook) => {
       this.setState({ orderbook })
     })
