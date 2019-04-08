@@ -193,16 +193,17 @@ class App extends Component {
                 </Header.Content>
               </Header>
             </a>
-            <div className="Install">
+            <div className="Install large">
               <a href="https://sparkswap.com/docs/getting-started">
                 <Button size="large" color='black' onClick={() => App.trackLink('install')}>Install Now</Button>
               </a>
+              <span className="sub-text">Start Trading</span>
             </div>
             <div className="market-selector">
               <MarketSelector markets={markets} />
             </div>
           </Responsive>
-          <Responsive as={Segment} minWidth={527} maxWidth={767} basic clearing className="Header">
+          <Responsive as={Segment} minWidth={600} maxWidth={767} basic clearing className="Header">
             <a href="/" className="Header-link">
               <Header as="h1" className="Logo-medium">
                 <Image src={icon} size="large" />
@@ -212,37 +213,39 @@ class App extends Component {
                 </Header.Content>
               </Header>
             </a>
-            <div className="Install">
+            <div className="Install marge">
               <a href="https://sparkswap.com/docs/getting-started">
                 <Button size="small" color='black' onClick={() => App.trackLink('install')}>Install Now</Button>
               </a>
+              <span className="sub-text">Start Trading</span>
             </div>
             <div className="market-selector-medium">
               <MarketSelector markets={markets} />
             </div>
           </Responsive>
-          <Responsive as={Segment} minWidth={381} maxWidth={526} basic clearing className="Header">
+          <Responsive as={Segment} minWidth={467} maxWidth={599} basic clearing className="Header">
             <a href="/" className="Header-link">
               <Header as="h1" className="Logo-medium">
                 <Image src={icon} size="large" />
               </Header>
             </a>
-            <div className="Install">
+            <div className="Install medium">
               <a href="https://sparkswap.com/docs/getting-started">
                 <Button size="tiny" color='black' onClick={() => App.trackLink('install')}>Install Now</Button>
               </a>
+              <span className="sub-text">Start Trading</span>
             </div>
             <div className="market-selector-medium">
               <MarketSelector markets={markets} />
             </div>
           </Responsive>
-          <Responsive as={Segment} minWidth={340} maxWidth={380} basic clearing className="Header">
+          <Responsive as={Segment} minWidth={340} maxWidth={466} basic clearing className="Header">
             <a href="/" className="Header-link">
               <Header as="h1" className="Logo-medium">
                 <Image src={icon} size="large" />
               </Header>
             </a>
-            <div className="Install-small">
+            <div className="Install small">
               <a href="https://sparkswap.com/docs/getting-started">
                 <Button size="tiny" color='black' onClick={() => App.trackLink('install')}>Install Now</Button>
               </a>
@@ -257,7 +260,7 @@ class App extends Component {
                 <Image src={icon} size="large" />
               </Header>
             </a>
-            <div className="Install-small">
+            <div className="Install small">
               <a href="https://sparkswap.com/docs/getting-started">
                 <Button size="mini" color='black' onClick={() => App.trackLink('install')}>Install</Button>
               </a>
