@@ -50,7 +50,7 @@ class App extends Component {
     this.marketData.subscribe()
   }
 
-  showMailingPopUp () {
+  static showMailingPopUp () {
     // Analytics
     App.trackLink('Mailing Popup')
 
@@ -305,7 +305,7 @@ class App extends Component {
                 <Icon name="life ring" />
                 Get Help
               </a>
-              <a href="#" onClick={this.showMailingPopUp} className="link-item">
+              <a href="#" onClick={App.showMailingPopUp} className="link-item">
                 <Icon name="envelope" />
                 Subscribe to Updates
               </a>
@@ -330,7 +330,7 @@ class App extends Component {
                 <Icon name="life ring" />
                 Help
               </a>
-              <a href="#" onClick={this.showMailingPopUp} className="link-item">
+              <a href="#" onClick={App.showMailingPopUp} className="link-item">
                 <Icon name="envelope" />
                 Subscribe
               </a>
@@ -352,7 +352,7 @@ class App extends Component {
               <a href="https://sparkswap.com/onboarding" className="link-item" onClick={() => App.trackLink('help')}>
                 <Icon name="life ring" />
               </a>
-              <a href="#" onClick={this.showMailingPopUp} className="link-item">
+              <a href="#" onClick={App.showMailingPopUp} className="link-item">
                 <Icon name="envelope" />
               </a>
             </div>
@@ -373,7 +373,7 @@ class App extends Component {
               <a href="https://sparkswap.com/onboarding" className="link-item-small" onClick={() => App.trackLink('help')}>
                 <Icon name="life ring" />
               </a>
-              <a href="#" onClick={this.showMailingPopUp} className="link-item-small">
+              <a href="#" onClick={App.showMailingPopUp} className="link-item-small">
                 <Icon name="envelope" />
               </a>
             </div>
