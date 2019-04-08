@@ -46,11 +46,38 @@
 .App .Header .Install {
   align-self: center;
   margin-left: 2em;
+  background-image: url(/arrow-left.svg);
+  background-repeat: no-repeat;
+  background-position: 60% 63%;
+  background-size: 60%;
 }
 
-.App .Header .Install-small {
+.App .Header .Install.large,
+.App .Header .Install.marge,
+.App .Header .Install.medium {
+  padding-top: 3em;
+  margin-top: -3em;
+}
+
+.App .Header .Install .sub-text {
+  display: inline-block;
+  position: relative;
+  font-family: 'Permanent Marker', 'Nunito Sans', Lato, 'Helvetica Neue', cursive;
+  font-size: 1.3em;
+  top: -0.7em;
+  left: 1.2em;
+}
+
+.App .Header .Install.marge .sub-text,
+.App .Header .Install.medium .sub-text {
+  font-size: 1em;
+}
+
+
+.App .Header .Install.small {
   align-self: center;
   margin-left: 0.5em;
+  background: none;
 }
 
 .App .Header .market-selector {
