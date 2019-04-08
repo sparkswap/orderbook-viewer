@@ -16,6 +16,23 @@ const FORMAT_TYPES = Object.freeze({
   DEPTH: 'DEPTH'
 })
 
+/**
+ * Height (in px) of a row on mobile that shows order data (price, dpeth).
+ *
+ * @constant
+ * @type {number}
+ */
+const ORDER_ROW_HEIGHT = 19
+
+/**
+ * Catch-all height (in px) to calculate how many orders can be displayed
+ * on screen. This is a rough estimate of all space that wouldn't be included
+ * in an order row.
+ *
+ * @type {number}
+ */
+const OTHER_HEIGHT = 290
+
 class App extends Component {
   constructor(props) {
     super(props)
@@ -72,7 +89,8 @@ class App extends Component {
 
   /**
    * Generates an array of HTLM elements (in JSX) that represents the orderbook as a
-   * table in Semantic UI.
+   * table in Semantic UI. This is used for displaying orders on screens larger than
+   * 768px.
    *
    * @returns {Array}
    */
@@ -93,6 +111,94 @@ class App extends Component {
     })
 
     return formattedOrders
+  }
+
+  /**
+   * Generates an array of HTLM elements (in JSX) that represents the orderbook as a
+   * stacked table in Semantic UI. This is used for displaying orders on screens smaller than
+   * 768px.
+   *
+   * @returns {Array}
+   */
+  renderOrdersMobile () {
+    const { orderbook } = this.state
+    const windowHeight = window.innerHeight
+    const maxLengthPerSide = Math.floor((windowHeight - OTHER_HEIGHT) / 2 / ORDER_ROW_HEIGHT)
+
+    const formattedOrders = []
+    this.addOrdersToMobileTable(orderbook.asks, formattedOrders, FORMAT_TYPES.ASK, maxLengthPerSide)
+
+    // Add two empty rows to separate bids from asks
+    formattedOrders.push(
+      (
+        <Table.Row style={{height: `${ORDER_ROW_HEIGHT}px`}}>
+          <Table.Cell className="bid-ask-delim-border"></Table.Cell>
+          <Table.Cell className="bid-ask-delim-border"></Table.Cell>
+        </Table.Row>
+      ),
+      (
+        <Table.Row style={{height: `${ORDER_ROW_HEIGHT}px`}}>
+          <Table.Cell className="bid-ask-delim-no-border"></Table.Cell>
+          <Table.Cell className="bid-ask-delim-no-border"></Table.Cell>
+        </Table.Row>
+      )
+    )
+
+    this.addOrdersToMobileTable(orderbook.bids, formattedOrders, FORMAT_TYPES.BID, maxLengthPerSide)
+
+    return formattedOrders
+  }
+
+  addOrdersToMobileTable (orders, ordersTable, type, maxLength) {
+    const formattedOrders = []
+
+    for (const [index, order] of orders.entries()) {
+      if (index === maxLength) {
+        const ordersNotDisplayed = orders.length - maxLength
+        const message = ` ${ordersNotDisplayed} more...`
+        formattedOrders.push(
+          (
+            <Table.Row className="order-mobile" style={{height: `${ORDER_ROW_HEIGHT}px`}}>
+              <Table.Cell>{message}</Table.Cell>
+              <Table.Cell></Table.Cell>
+            </Table.Row>
+          )
+        )
+
+        break
+      }
+
+      const formattedPrice = App.formatText(order.price, type)
+      const formattedDepth = App.formatText(order.amount, FORMAT_TYPES.DEPTH)
+      formattedOrders.push(
+        (
+          <Table.Row className="order-mobile" textAlign="center" style={{height: `${ORDER_ROW_HEIGHT}px`}}>
+            <Table.Cell>{formattedPrice}</Table.Cell>
+            <Table.Cell>{formattedDepth}</Table.Cell>
+          </Table.Row>
+        )
+      )
+    }
+
+    if (orders.length < maxLength) {
+      const emptyRecords = maxLength - orders.length
+      for (let i = 0; i < emptyRecords; i++) {
+        formattedOrders.push(
+          (
+            <Table.Row style={{height: `${ORDER_ROW_HEIGHT}px`}}>
+              <Table.Cell className='hidden'>''</Table.Cell>{/* Empty for consistent formatting */}
+              <Table.Cell className='hidden'>''</Table.Cell>
+            </Table.Row>
+          )
+        )
+      }
+    }
+
+    if (type === FORMAT_TYPES.ASK) {
+      formattedOrders.reverse().forEach(order => ordersTable.push(order))
+    } else {
+      formattedOrders.forEach(order => ordersTable.push(order))
+    }
   }
 
   /**
@@ -266,26 +372,44 @@ class App extends Component {
               <MarketSelector markets={markets} />
             </div>
           </Responsive>
-          <div className="horizontal-scrolling">
-            <Table unstackable>
-              <Table.Header>
-                <Table.Row>
-                  <Table.HeaderCell colSpan="2">Asks</Table.HeaderCell>
-                  <Table.HeaderCell colSpan="2">Bids</Table.HeaderCell>
-                </Table.Row>
-                <Table.Row>
-                  <Table.HeaderCell width={4}>Price</Table.HeaderCell>
-                  <Table.HeaderCell width={4}>Size</Table.HeaderCell>
-                  <Table.HeaderCell width={4}>Price</Table.HeaderCell>
-                  <Table.HeaderCell width={4}>Size</Table.HeaderCell>
-                </Table.Row>
-              </Table.Header>
+          <Responsive minWidth={768}>
+            <div className="horizontal-scrolling">
+              <Table unstackable>
+                <Table.Header>
+                  <Table.Row>
+                    <Table.HeaderCell colSpan="2">Asks</Table.HeaderCell>
+                    <Table.HeaderCell colSpan="2">Bids</Table.HeaderCell>
+                  </Table.Row>
+                  <Table.Row>
+                    <Table.HeaderCell width={4}>Price</Table.HeaderCell>
+                    <Table.HeaderCell width={4}>Size</Table.HeaderCell>
+                    <Table.HeaderCell width={4}>Price</Table.HeaderCell>
+                    <Table.HeaderCell width={4}>Size</Table.HeaderCell>
+                  </Table.Row>
+                </Table.Header>
 
-              <Table.Body>
-                {this.renderOrders()}
-              </Table.Body>
-            </Table>
-          </div>
+                <Table.Body>
+                  {this.renderOrders()}
+                </Table.Body>
+              </Table>
+            </div>
+          </Responsive>
+          <Responsive maxWidth={767}>
+            <div className="table-wrapper">
+              <Table basic unstackable className="orders-table">
+                <Table.Header >
+                  <Table.Row textAlign="center">
+                    <Table.HeaderCell width={4}>Price</Table.HeaderCell>
+                    <Table.HeaderCell width={4}>Size</Table.HeaderCell>
+                  </Table.Row>
+                </Table.Header>
+
+                <Table.Body>
+                  {this.renderOrdersMobile()}
+                </Table.Body>
+              </Table>
+            </div>
+          </Responsive>
           <Responsive as={Segment} minWidth={635} basic className="Footer">
             <div>
               <a href="https://sparkswap.com">
