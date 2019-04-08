@@ -111,3 +111,32 @@
 .App .non-sig-digits {
   color: gray;
 }
+
+.App .table-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.App .orders-table {
+  max-width: 350px;
+  align-self: center;
+}
+
+.ui.table tr td {
+  border-top: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.App .hidden {
+  visibility: hidden;
+}
+
+
+.ui.table.basic tbody tr .bid-ask-delim-border {
+  border-bottom: 1px solid rgba(0,0,0,.1);
+}
+
+.App .order-mobile {
+  font-size: .8em;
+}
