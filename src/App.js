@@ -41,7 +41,7 @@ class App extends Component {
 
   componentDidMount () {
     // Analytics
-    window.analytics.page('Home')
+    window.analytics.page('Orderbook')
 
     this.marketData = new MarketData(this.markets[0].name, this.host, this.username, this.password)
     this.marketData.on('update', (orderbook) => {
@@ -195,7 +195,7 @@ class App extends Component {
             </a>
             <div className="Install">
               <a href="https://sparkswap.com/docs/getting-started">
-                <Button size="large" color='black'>Install Now</Button>
+                <Button size="large" color='black' onClick={() => App.trackLink('install')}>Install Now</Button>
               </a>
             </div>
             <div className="market-selector">
