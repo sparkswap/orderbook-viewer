@@ -2,6 +2,10 @@
   padding-top: 25px;
 }
 
+.App .horizontal-scrolling {
+  overflow: auto;
+}
+
 .App, .App .ui {
   font-family: 'Nunito Sans', Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
 }
@@ -17,6 +21,15 @@
 .App .Header .Logo {
   font-family: Montserrat, Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
   font-weight: 700;
+}
+
+.App .Header .Logo-medium {
+  font-family: Montserrat, Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  font-weight: 700;
+}
+
+.App .Header .Logo-medium .content {
+  font-size: 0.9em;
 }
 
 .App .Header .Logo img {
@@ -35,10 +48,21 @@
   margin-left: 2em;
 }
 
+.App .Header .Install-small {
+  align-self: center;
+  margin-left: 0.5em;
+}
+
 .App .Header .market-selector {
   align-self: center;
   margin-left: auto;
   font-size: 1.2em;
+}
+
+.App .Header .market-selector-medium {
+  align-self: center;
+  margin-left: auto;
+  font-size: 1em;
 }
 
 .App .Footer {
@@ -61,6 +85,10 @@
 
 .App .Footer .links .link-item {
   margin-left: 2em;
+}
+
+.App .Footer .links .link-item-small {
+  margin-left: 1em;
 }
 
 .App .Footer a {
