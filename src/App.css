@@ -59,11 +59,27 @@
   align-self: center;
 }
 
-.App .Footer .links * {
+.App .Footer .links .link-item {
   margin-left: 2em;
 }
 
 .App .Footer a {
   color: inherit;
   text-decoration: inherit;
+}
+
+.App .bid-sig-digits {
+  color: green;
+}
+
+.App .ask-sig-digits {
+  color: red;
+}
+
+.App .depth-sig-digits {
+  color: black;
+}
+
+.App .non-sig-digits {
+  color: gray;
 }

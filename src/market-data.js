@@ -4,10 +4,12 @@ import EventEmitter from 'events'
 const ORDERBOOK_URL = '/v1/orderbook'
 
 class MarketData extends EventEmitter {
-  constructor (market, host, pollEvery = 3000) {
+  constructor (market, host, username, password, pollEvery = 3000) {
     super()
     this.market = market
     this.host = host
+    this.username = username
+    this.password = password
     this.pollEvery = pollEvery
   }
 
@@ -15,8 +17,8 @@ class MarketData extends EventEmitter {
     const config = {
       // This auth is used for demo purposes only
       auth: {
-        username: 'sparkswap',
-        password: 'sparkswap'
+        username: this.username,
+        password: this.password
       }
     }
 
