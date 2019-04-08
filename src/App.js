@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Container, Header, Icon, Image, Segment, Table } from 'semantic-ui-react'
+import { Button, Container, Header, Icon, Image, Responsive, Segment, Table } from 'semantic-ui-react'
 import MarketSelector from './market-selector.js'
 import MarketData from './market-data.js'
 import icon from './icon.svg';
@@ -183,7 +183,7 @@ class App extends Component {
     return (
       <div className="App">
         <Container>
-          <Segment basic clearing className="Header">
+          <Responsive as={Segment} minWidth={768} basic clearing className="Header">
             <a href="/" className="Header-link">
               <Header as="h1" className="Logo">
                 <Image src={icon} size="large" />
@@ -201,26 +201,92 @@ class App extends Component {
             <div className="market-selector">
               <MarketSelector markets={markets} />
             </div>
-          </Segment>
-          <Table>
-            <Table.Header>
-              <Table.Row>
-                <Table.HeaderCell colSpan="2">Asks</Table.HeaderCell>
-                <Table.HeaderCell colSpan="2">Bids</Table.HeaderCell>
-              </Table.Row>
-              <Table.Row>
-                <Table.HeaderCell width={4}>Price</Table.HeaderCell>
-                <Table.HeaderCell width={4}>Size</Table.HeaderCell>
-                <Table.HeaderCell width={4}>Price</Table.HeaderCell>
-                <Table.HeaderCell width={4}>Size</Table.HeaderCell>
-              </Table.Row>
-            </Table.Header>
+          </Responsive>
+          <Responsive as={Segment} minWidth={527} maxWidth={767} basic clearing className="Header">
+            <a href="/" className="Header-link">
+              <Header as="h1" className="Logo-medium">
+                <Image src={icon} size="large" />
+                <Header.Content>
+                  orderbook
+                  <Header.Subheader>Mainnet</Header.Subheader>
+                </Header.Content>
+              </Header>
+            </a>
+            <div className="Install">
+              <a href="https://sparkswap.com/docs/getting-started">
+                <Button size="small" color='black' onClick={() => App.trackLink('install')}>Install Now</Button>
+              </a>
+            </div>
+            <div className="market-selector-medium">
+              <MarketSelector markets={markets} />
+            </div>
+          </Responsive>
+          <Responsive as={Segment} minWidth={381} maxWidth={526} basic clearing className="Header">
+            <a href="/" className="Header-link">
+              <Header as="h1" className="Logo-medium">
+                <Image src={icon} size="large" />
+              </Header>
+            </a>
+            <div className="Install">
+              <a href="https://sparkswap.com/docs/getting-started">
+                <Button size="tiny" color='black' onClick={() => App.trackLink('install')}>Install Now</Button>
+              </a>
+            </div>
+            <div className="market-selector-medium">
+              <MarketSelector markets={markets} />
+            </div>
+          </Responsive>
+          <Responsive as={Segment} minWidth={340} maxWidth={380} basic clearing className="Header">
+            <a href="/" className="Header-link">
+              <Header as="h1" className="Logo-medium">
+                <Image src={icon} size="large" />
+              </Header>
+            </a>
+            <div className="Install-small">
+              <a href="https://sparkswap.com/docs/getting-started">
+                <Button size="tiny" color='black' onClick={() => App.trackLink('install')}>Install Now</Button>
+              </a>
+            </div>
+            <div className="market-selector-medium">
+              <MarketSelector markets={markets} />
+            </div>
+          </Responsive>
+          <Responsive as={Segment} maxWidth={339} basic clearing className="Header">
+            <a href="/" className="Header-link">
+              <Header as="h1" className="Logo-medium">
+                <Image src={icon} size="large" />
+              </Header>
+            </a>
+            <div className="Install-small">
+              <a href="https://sparkswap.com/docs/getting-started">
+                <Button size="mini" color='black' onClick={() => App.trackLink('install')}>Install</Button>
+              </a>
+            </div>
+            <div className="market-selector-medium">
+              <MarketSelector markets={markets} />
+            </div>
+          </Responsive>
+          <div className="horizontal-scrolling">
+            <Table unstackable>
+              <Table.Header>
+                <Table.Row>
+                  <Table.HeaderCell colSpan="2">Asks</Table.HeaderCell>
+                  <Table.HeaderCell colSpan="2">Bids</Table.HeaderCell>
+                </Table.Row>
+                <Table.Row>
+                  <Table.HeaderCell width={4}>Price</Table.HeaderCell>
+                  <Table.HeaderCell width={4}>Size</Table.HeaderCell>
+                  <Table.HeaderCell width={4}>Price</Table.HeaderCell>
+                  <Table.HeaderCell width={4}>Size</Table.HeaderCell>
+                </Table.Row>
+              </Table.Header>
 
-            <Table.Body>
-              {this.renderOrders()}
-            </Table.Body>
-          </Table>
-          <Segment basic className="Footer">
+              <Table.Body>
+                {this.renderOrders()}
+              </Table.Body>
+            </Table>
+          </div>
+          <Responsive as={Segment} minWidth={635} basic className="Footer">
             <div>
               <a href="https://sparkswap.com">
                 <Image src={logo} size="small" />
@@ -244,7 +310,75 @@ class App extends Component {
                 Subscribe to Updates
               </a>
             </div>
-          </Segment>
+          </Responsive>
+          <Responsive as={Segment} minWidth={537} maxWidth={634} basic className="Footer">
+            <div>
+              <a href="https://sparkswap.com">
+                <Image src={logo} size="small" />
+              </a>
+            </div>
+            <div className="links">
+              <a href="https://sparkswap.com/chat" className="link-item" onClick={() => App.trackLink('chat')}>
+                <Icon name="discord" />
+                Chat
+              </a>
+              <a href="https://sparkswap.com/docs/getting-started" className="link-item" onClick={() => App.trackLink('docs')}>
+                <Icon name="file alternate" />
+                Docs
+              </a>
+              <a href="https://sparkswap.com/onboarding" className="link-item" onClick={() => App.trackLink('help')}>
+                <Icon name="life ring" />
+                Help
+              </a>
+              <a href="#" onClick={this.showMailingPopUp} className="link-item">
+                <Icon name="envelope" />
+                Subscribe
+              </a>
+            </div>
+          </Responsive>
+          <Responsive as={Segment} minWidth={385} maxWidth={536} basic className="Footer">
+            <div>
+              <a href="https://sparkswap.com">
+                <Image src={logo} size="small" />
+              </a>
+            </div>
+            <div className="links">
+              <a href="https://sparkswap.com/chat" className="link-item" onClick={() => App.trackLink('chat')}>
+                <Icon name="discord" />
+              </a>
+              <a href="https://sparkswap.com/docs/getting-started" className="link-item" onClick={() => App.trackLink('docs')}>
+                <Icon name="file alternate" />
+              </a>
+              <a href="https://sparkswap.com/onboarding" className="link-item" onClick={() => App.trackLink('help')}>
+                <Icon name="life ring" />
+              </a>
+              <a href="#" onClick={this.showMailingPopUp} className="link-item">
+                <Icon name="envelope" />
+              </a>
+            </div>
+          </Responsive>
+          <Responsive as={Segment} maxWidth={384} basic className="Footer">
+            <div>
+              <a href="https://sparkswap.com">
+                <Image src={logo} size="tiny" />
+              </a>
+            </div>
+            <div className="links">
+              <a href="https://sparkswap.com/chat" className="link-item-small" onClick={() => App.trackLink('chat')}>
+                <Icon name="discord" />
+              </a>
+              <a href="https://sparkswap.com/docs/getting-started" className="link-item-small" onClick={() => App.trackLink('docs')}>
+                <Icon name="file alternate" />
+              </a>
+              <a href="https://sparkswap.com/onboarding" className="link-item-small" onClick={() => App.trackLink('help')}>
+                <Icon name="life ring" />
+              </a>
+              <a href="#" onClick={this.showMailingPopUp} className="link-item-small">
+                <Icon name="envelope" />
+              </a>
+            </div>
+          </Responsive>
+
         </Container>
       </div>
     );
