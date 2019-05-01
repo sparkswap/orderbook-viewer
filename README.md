@@ -4,6 +4,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Contains the SPA for viewing the orderbook on mainnet.
 
+## Test locally
+
+1. `npm start`
+
 ## Deploy
 
 To deploy the website to `http://orderbook.mainnet.sparkswap.com`:
